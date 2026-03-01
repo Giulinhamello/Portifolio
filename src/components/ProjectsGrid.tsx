@@ -1,11 +1,13 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "../assets/styles/ProjectsGrid.scss";
+import { imageMap } from "../data/sections";
 
 type ProjectItem =
   | string
   | {
       title: string;
-      image?: string;
+      image?: string; // fallback antigo (local)
+      imageKey?: string; // novo (Supabase)
       alt?: string;
       extra?: string | string[]; // texto do modal
     };
@@ -24,7 +26,7 @@ export default function ProjectsGrid({ id, title, items }: Props) {
           ? { title: item }
           : {
               title: item.title,
-              image: item.image,
+              image: item.imageKey ? imageMap[item.imageKey] ?? item.image : item.image,
               alt: item.alt ?? item.title,
               extra: item.extra,
             }
