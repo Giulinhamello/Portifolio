@@ -14,7 +14,7 @@
 
 /* Faixa do título */
 .projects-title {
-  width: min(1400px, 94%);
+  width: min(1450px, 94%);
   height: 95px;
   margin: 0 auto 44px;
   display: flex;
@@ -87,7 +87,7 @@
 /* Card verde do texto */
 .project-text-card {
   width: 100%;
-  min-height: 140px;
+  height: 130px;
   background: rgba(78, 175, 152, 0.75);
   border-radius: 14px;
 
@@ -106,6 +106,7 @@
   font-weight: 700;
   font-size: 1.55rem;
   line-height: 1.2;
+  font-family: inherit;
 }
 
 /* Responsivo */
@@ -122,4 +123,133 @@
   .project-text {
     font-size: 1.45rem;
   }
+}
+
+.project-text-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* escondido por padrão */
+.project-extra {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: max-height 300ms ease, opacity 250ms ease, transform 250ms ease;
+  margin-top: 14px;
+  text-transform: none;
+}
+
+/* mostra no hover */
+.project-card:hover .project-extra {
+  max-height: 180px; /* ajuste */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-extra p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.25;
+  opacity: 0.95;
+  font-family: inherit;
+}
+
+.project-extra ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.25;
+  opacity: 0.95;
+}
+
+/* deixa clicável só quando tiver extra */
+.project-card.is-clickable {
+  cursor: pointer;
+}
+
+/* quando modal está aberto, esconde o título no card “do fundo” */
+.project-card.is-open .project-text {
+  opacity: 0;
+}
+
+
+/* Overlay do modal */
+.project-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  z-index: 9999;
+}
+
+/* Card grande central (VERDE, maior, mais quadrado) */
+.project-modal {
+  width: min(980px, 92vw);     /* maior */
+  min-height: 320px;          /* mais “presença” */
+  max-height: 82vh;
+  overflow: auto;
+
+  background: rgba(78, 175, 152, 0.95); /* verde */
+  border-radius: 10px;        /* mais quadrado (menos arredondado) */
+  padding: 30px 30px;
+  position: relative;
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  font-family: "PT Serif", serif; /* fonte do resto */
+}
+
+/* botão X (mais discreto e combinando) */
+.project-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: none;
+
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 28px;
+  line-height: 42px;
+  cursor: pointer;
+}
+
+.project-modal-title {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.project-modal-content {
+  color: #ffffff;
+  font-size: 1.8rem;
+  line-height: 1.45;
+  font-family: inherit;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.project-modal-content p {
+  margin: 0;
+  color: inherit;
+}
+
+.project-modal-content ul {
+  margin: 0;
+  padding-left: 20px;
+  color: inherit;
+}
+
+.project-modal .project-modal-title {
+  display: none;
 }
