@@ -1,0 +1,75 @@
+.section-grid {
+  width: 100%;
+  padding: 60px 0 90px; /* separa bem os blocos */
+}
+
+.section-inner {
+  width: min(1400px, 94%);
+  margin: 0 auto;
+}
+
+.section-title {
+  height: 90px;
+  margin: 0 auto 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 2.2rem;
+
+  border-radius: 8px;
+}
+
+/* grid 3 colunas */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* caixinhas verdes */
+.card {
+  background: rgba(78, 175, 152, 0.75);
+  border-radius: 14px;
+
+  padding: 26px 18px;
+  min-height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: #ffffff;
+
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+  font-size: 1.45rem;
+  line-height: 1.25;
+}
+
+/* responsivo */
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    height: auto;
+    padding: 22px 14px;
+    font-size: 1.8rem;
+  }
+
+  .card {
+    min-height: 140px;
+    font-size: 1.25rem;
+  }
+}

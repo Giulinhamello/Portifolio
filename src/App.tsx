@@ -1,44 +1,30 @@
-import React, {useState, useEffect} from "react";
-import {
-  Main,
-  Timeline,
-  Expertise,
-  Project,
-  Contact,
-  Navigation,
-  Footer,
-} from "./components";
-import FadeIn from './components/FadeIn';
-import './index.scss';
+import React from "react";
+
+import Navigation from "./components/Navigation";
+import Main from "./components/Main";
+import Contact from "./components/Contact";
+
+import SectionGrid from "./components/SectionGrid";
+import ProjectsGrid from "./components/ProjectsGrid";
+
+import { formacao, sobre, projetos, extras } from "./data/sections";
 
 function App() {
-    const [mode, setMode] = useState<string>('dark');
+  return (
+    <div>
+      <Navigation />
+      <Main />
 
-    const handleModeChange = () => {
-        if (mode === 'dark') {
-            setMode('light');
-        } else {
-            setMode('dark');
-        }
-    }
+      <SectionGrid id="formacao" title="FORMAÇÃO ACADÊMICA" items={formacao} />
+      <SectionGrid id="sobre" title="SOBRE MIM" items={sobre} />
 
-    useEffect(() => {
-        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-      }, []);
+      <ProjectsGrid id="projetos" title="SELEÇÃO DE PROJETOS RECENTES" items={projetos} />
 
-    return (
-    <div className={`main-container ${mode === 'dark' ? 'dark-mode' : 'light-mode'}`}>
-        <Navigation parentToChild={{mode}} modeChange={handleModeChange}/>
-        <FadeIn transitionDuration={700}>
-            <Main/>
-            <Expertise/>
-            <Timeline/>
-            <Project/>
-            <Contact/>
-        </FadeIn>
-        <Footer />
+      <SectionGrid id="extras" title="ATIVIDADES EXTRACURRICULARES" items={extras} />
+
+      <Contact />
     </div>
-    );
+  );
 }
 
 export default App;

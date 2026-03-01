@@ -53,8 +53,7 @@ function Contact() {
     <div id="contact">
       <div className="items-container">
         <div className="contact_wrapper">
-          <h1>Contact Me</h1>
-          <p>Got a project waiting to be realized? Let's collaborate and make it happen!</p>
+          <h1>Entre em contato comigo!</h1>
           <Box
             ref={form}
             component="form"
@@ -66,32 +65,32 @@ function Contact() {
               <TextField
                 required
                 id="outlined-required"
-                label="Your Name"
+                label="Seu nome"
                 placeholder="What's your name?"
                 value={name}
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
                 error={nameError}
-                helperText={nameError ? "Please enter your name" : ""}
+                helperText={nameError ? "Por favor, coloque seu nome" : ""}
               />
               <TextField
                 required
                 id="outlined-required"
-                label="Email / Phone"
+                label="Email / Telefone"
                 placeholder="How can I reach you?"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
                 error={emailError}
-                helperText={emailError ? "Please enter your email or phone number" : ""}
+                helperText={emailError ? "Por favor, coloque seu telefone ou email" : ""}
               />
             </div>
             <TextField
               required
               id="outlined-multiline-static"
-              label="Message"
+              label="Mensagem"
               placeholder="Send me any inquiries or questions"
               multiline
               rows={10}
@@ -101,10 +100,10 @@ function Contact() {
                 setMessage(e.target.value);
               }}
               error={messageError}
-              helperText={messageError ? "Please enter the message" : ""}
+              helperText={messageError ? "Por favor, digite algo." : ""}
             />
             <Button variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
-              Send
+              Enviar
             </Button>
           </Box>
         </div>

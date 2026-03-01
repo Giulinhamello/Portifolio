@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  background-color: #244969;  /* <- seu azul */
+  font-family: "PT Serif, serif";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.1rem !important;
@@ -15,7 +16,7 @@ code {
 
 .main-container {
   position: relative;
-  background-color: #0d1116;
+  background-color: #244969;
 
 }
 
@@ -24,29 +25,32 @@ a {
 }
 
 a:hover {
-  color: #5000ca;
+  color: #0d1116;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 
 p, a, h1, h2, h3, h4, h5, label, button {
   color: white;
-  font-family: "Lato", sans-serif;
+  font-family: inherit;
 }
 
 .navigation-bar {
-  justify-content: space-between;
-  background-color: #0d1116;
+  justify-content: flex-start; /* deixa os itens colados na esquerda */
+  gap: 18px;
+  background-color: #798896 !important;
 
+  /* força PT Serif nos botões do MUI */
   button {
-    font-size: 1.1rem;
-    font-family: "Lato", sans-serif;
-    text-transform: initial;
+    font-size: 1.05rem;
+    font-family: "PT Serif", serif !important;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
     padding: 6px 10px;
   }
+}
 
-  svg {
-    cursor: pointer;
-  }
+#navigation {
+  background-color: #798896 !important;
 }
 
 .navigation-bar-responsive {
@@ -110,10 +114,6 @@ p, a, h1, h2, h3, h4, h5, label, button {
 
   .navigation-bar svg {
     color: #0d1116;
-  }
-
-  .about-section {
-    background-image: url("./assets/images/bg-light.png");
   }
 
   .skills-container svg {

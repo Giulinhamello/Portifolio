@@ -1,0 +1,125 @@
+/* NÃO coloque isso dentro do TSX. Aqui é o lugar certo. */
+/* Se você já importou PT Serif no index.scss, pode remover essa linha. */
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap");
+
+.projects-grid {
+  width: 100%;
+  padding: 48px 0 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "PT Serif", serif;
+  margin-bottom: 50px;
+}
+
+/* Faixa do título */
+.projects-title {
+  width: min(1400px, 94%);
+  height: 95px;
+  margin: 0 auto 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: 2rem;
+}
+
+/* Grid 3 colunas */
+.projects-cards {
+  width: min(1400px, 94%);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 70px;
+  align-items: start;
+}
+
+/* Cada projeto: imagem em cima + card verde embaixo */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding:0;
+  align-items: center;
+}
+
+/* Caixa branca da imagem (FORA do verde) */
+.project-image-box {
+  width: 100%;
+  height: 220px;            /* ajuste aqui para “tamanho da caixa” */
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* A IMAGEM (não o card) fica menor e aparece inteira */
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* <<< mostra a foto inteira */
+  object-position: center;
+  display: block;
+
+  /* “diminuir a imagem” sem diminuir a caixa */
+  padding: 0px;            /* <<< aumenta/diminui aqui (ex: 10px, 24px) */
+  box-sizing: border-box;
+}
+
+/* caso não tenha imagem ainda */
+.project-image-placeholder {
+  color: #0d1116;
+  opacity: 0.6;
+  font-weight: 700;
+}
+
+/* Card verde do texto */
+.project-text-card {
+  width: 100%;
+  min-height: 140px;
+  background: rgba(78, 175, 152, 0.75);
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 18px 16px;
+}
+
+/* Texto do projeto */
+.project-text {
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+/* Responsivo */
+@media (max-width: 1000px) {
+  .projects-cards {
+    grid-template-columns: 1fr;
+    width: 92%;
+  }
+
+  .project-image-box {
+    height: 240px;
+  }
+
+  .project-text {
+    font-size: 1.45rem;
+  }
+}
